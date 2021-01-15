@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ingreso-egreso-7ba4a": {
+      "hosting": {
+        "dashboard-redux": [
+          "ingreso-egreso-7ba4a"
+        ]
+      }
+    }
+  }
+}

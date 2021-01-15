@@ -7,7 +7,28 @@
         <h2 class="text-center mb-4">Registro</h2>
 
         <div class="auto-form-wrapper">
-          <form action="#">
+          <form [formGroup]="formAccount" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Nombre"
+                  autocomplete="off"
+                  formControlName="nombre"
+                >
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i
+                      *ngIf="formAccount.get('nombre').valid"
+                      class="fa fa-check-circle"
+                      [ngClass]="{'ok': formAccount.get('nombre').valid}"
+                    ></i>
+                  </span>
+                </div>
+              </div>
+            </div>
 
             <div class="form-group">
               <div class="input-group">
@@ -15,10 +36,16 @@
                   type="email"
                   class="form-control"
                   placeholder="Correo"
+                  autocomplete="off"
+                  formControlName="correo"
                 >
                 <div class="input-group-append">
                   <span class="input-group-text">
-                    <i class="fa fa-check-circle"></i>
+                    <i
+                      *ngIf="formAccount.get('correo').valid"
+                      class="fa fa-check-circle"
+                      [ngClass]="{'ok': formAccount.get('correo').valid}"
+                    ></i>
                   </span>
                 </div>
               </div>
@@ -30,17 +57,27 @@
                   type="password"
                   class="form-control"
                   placeholder="Password"
+                  autocomplete="off"
+                  formControlName="password"
                 >
                 <div class="input-group-append">
                   <span class="input-group-text">
-                    <i class="fa fa-check-circle"></i>
+                    <i
+                      *ngIf="formAccount.get('password').valid"
+                      class="fa fa-check-circle"
+                      [ngClass]="{'ok': formAccount.get('password').valid}"
+                    ></i>
                   </span>
                 </div>
               </div>
             </div>
 
             <div class="form-group">
-              <button class="btn btn-primary submit-btn btn-block">Crear cuenta</button>
+              <button
+                type="submit"
+                class="btn btn-primary submit-btn btn-block"
+                [disabled]="formAccount.invalid"
+              >Crear cuenta</button>
             </div>
 
             <div class="text-block text-center my-3">
